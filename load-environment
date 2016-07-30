@@ -1,0 +1,6 @@
+FILE_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+export LIBRARY_PATH=$FILE_DIR/lib
+export LD_LIBRARY_PATH=$FILE_DIR/lib
+export C_INCLUDE_PATH=$FILE_DIR/include/c++/v1
+export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH
