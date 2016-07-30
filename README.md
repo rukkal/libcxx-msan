@@ -5,9 +5,11 @@
 ## How to use it
 1. build the instrumented libc++:
 ```shell
-./build.sh clang-3.8 clang++-3.8
+export CC=clang
+export CXX=clang++
+./build.sh
 ```
-the two parameters of build.sh are respectively the C and C++ compiler to be used.
+feel free to change CC and CXX with you favorite clang version
 - load the environment to make clang use the instrumented libc++:
 ```shell
 source load-environment
@@ -15,7 +17,7 @@ source load-environment
 
 Now you are ready to go. You can compile your program using the memory sanitizer. E.g.
 ```shell
-clang++-3.8 -stdlib=libc++ -fsanitize=memory test.cpp -o test
+$CXX -stdlib=libc++ -fsanitize=memory test.cpp -o test
 ```
 
 **Important**: don't forget to pass -stdlib=libc++. Otherwise clang might use the GNU libstdc++ (default on Linux).
